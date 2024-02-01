@@ -3,7 +3,6 @@ addEventListener('fetch', event => {
 })
 
 async function handleRequest(request) {
-    const {method, headers} = request;
     const url = new URL(request.url);
     const path = url.pathname.slice(1); // Remove the leading '/'
 
