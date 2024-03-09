@@ -12,7 +12,11 @@ async function handleRequest(request) {
 
   try {
     // 1. 从外部传入的订阅链接中获取初始的clash配置
-    const configResponse = await fetch(configUrl);
+    const configResponse = await fetch(configUrl, {
+      headers: {
+        'User-Agent': 'Clash'
+      }
+    });
     if (!configResponse.ok) {
       return new Response('Failed to fetch config', { status: configResponse.status });
     }
