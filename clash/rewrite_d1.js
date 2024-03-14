@@ -19,7 +19,7 @@ export default {
         }
         let configText = await configResponse.text();
   
-        // 2. 从DurableDB中获取自定义规则
+        // 2. 从D1中获取自定义规则
         const { results } = await env.DB.prepare('SELECT * FROM rules').all();
         if (!results || results.length === 0) {
           return new Response('No custom rules found in DurableDB', { status: 500 });
